@@ -3,6 +3,7 @@
 
 #include "systemc.h"
 #include "hls_math.h"
+#include "ap_int.h"
 
 SC_MODULE (calculation){
 	sc_in_clk clock;
@@ -13,7 +14,7 @@ SC_MODULE (calculation){
 	sc_out<sc_uint<4> > dout_words;
 	sc_out<sc_uint<32> > ctrl;
 
-	sc_uint<256> data;
+	ap_uint<256> data;
 
 	void datagen(){
 		while(1){
@@ -37,7 +38,9 @@ SC_MODULE (calculation){
 	 ctrl("ctrl"),
 	 din_words("din_words"),
 	 dout_words("dout_words"),
-	 clock("clock")
+	 clock("clock"),
+	 din_tlast("din_tlast"),
+	 din_tvalid("din_tvalid")
 	{
 		din_words=11;
 		dout_words=11;
