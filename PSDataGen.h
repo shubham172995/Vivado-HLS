@@ -2,7 +2,7 @@
 #define PSDATAGEN_H
 
 #include "systemc.h"
-#include "calculate.h"
+#include "/home/shubham/HLS_Exercises/PSDataGen/calculate.h"
 
 SC_MODULE (PSDataGen){
 	sc_in<bool> clock;
@@ -22,8 +22,10 @@ SC_MODULE (PSDataGen){
 	din_words("din_words"),
 	clock("clock"),
 	din_tvalid("din_tvalid"),
-	din_tlast("din_tlast")
+	din_tlast("din_tlast"),
+	cal("cal")
 	{
+
 		cal.ctrl(ctrl);
 		cal.din_tlast(din_tlast);
 		cal.din_tvalid(din_tvalid);
